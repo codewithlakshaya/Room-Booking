@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTD Plant Room Booking System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header with logo and marquee -->
+    <div class="header">
+        <img src="Meiden.webp" alt="Logo" class="logo">
+        <marquee><h1>MTD Plant Room Booking System</h1></marquee>
+    </div>
+
+    <div class="container">
+        <!-- Booking Form Section -->
+        <div class="section" id="booking-section">
+            <h2>Book a Room</h2>
+            <form id="booking-form">
+                <label for="room">Room:</label>
+                <select id="room" required></select>
+
+                <label for="user">Your Name:</label>
+                <input type="text" id="user" placeholder="Your Name" required>
+
+                <label for="date">Date:</label>
+                <input type="date" id="date" required>
+
+                <label for="start">Start Time:</label>
+                <input type="time" id="start" required>
+
+                <label for="end">End Time:</label>
+                <input type="time" id="end" required>
+
+                <button type="submit">Book Room</button>
+            </form>
+            <p id="booking-msg"></p>
+        </div>
+
+        <!-- Booking Status Table Section -->
+        <div class="section" id="bookings-section">
+            <h2>Booking Status</h2>
+            <table id="bookings-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Room</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>User</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <!-- Calendar Section -->
+        <div class="section" id="calendar-section">
+            <h2>Booking Calendar</h2>
+            <div id="calendar"></div>
+            <!-- Optional legend -->
+            <div id="calendar-legend">
+                <strong>Representation: </strong>
+                <span style="background:#4CAF50;color:white;padding:2px 5px;margin-right:5px;">Alpha</span>
+                <span style="background:#FF9800;color:white;padding:2px 5px;margin-right:5px;">Beta</span>
+                <span style="background:#2196F3;color:white;padding:2px 5px;margin-right:5px;">Gamma</span>
+                <span style="background:#9C27B0;color:white;padding:2px 5px;margin-right:5px;">Theta</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
