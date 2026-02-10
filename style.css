@@ -1,0 +1,189 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "M";
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 300px;
+    color: rgba(0, 0, 0, 0.10);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.section {
+    margin-top: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, select, button {
+    padding: 8px;
+    font-size: 16px;
+}
+
+button {
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkblue;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: blue;
+    color: white;
+}
+
+#booking-msg {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 20px;
+}
+
+.header img.logo {
+    width: 140px;
+    height: auto;
+    display: block;
+}
+
+.header .marquee {
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Calendar */
+#calendar {
+    display: grid;
+    grid-template-columns: 100px repeat(12, 120px);
+    gap: 2px;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+#calendar .time-header, #calendar .room-cell {
+    background-color: #f0f0f0;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-weight: bold;
+    position: sticky;
+}
+
+#calendar .time-header {
+    top: 0;
+    z-index: 2;
+}
+
+#calendar .room-cell {
+    left: 0;
+    z-index: 1;
+}
+
+#calendar-section {
+    margin-top: 60px;   /* adjust to taste */
+}
+
+#calendar .slot {
+    border: 1px solid #ddd;
+    height: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+}
+
+/* Tooltip / Cloud effect */
+.tooltip {
+    position: relative;
+    cursor: pointer;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: auto; /* above the booking */
+    left: 50%;
+    top: 25%;
+    transform: translateX(-50%);
+    background-color: rgba(0,0,0,0.85);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+}
+
+.tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: auto;
+    top: 115%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent rgba(0,0,0,0.85) transparent;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.tooltip:hover::after,
+.tooltip:hover::before {
+    opacity: 1; 
+    transform: translateX(-50%) translateY(-3px);
+}
